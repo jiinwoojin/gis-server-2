@@ -4,7 +4,7 @@
 FROM centos:7
 MAINTAINER JIIN System <jiinwoojin@gmail.com>
 
-ENV ROOTDIR=/app/jiserver \
+ENV ROOTDIR=/app/jiapp \
     PROJ_VERSION="6.1.1" \
     GEOS_VERSION="3.8.0" \
     GDAL_VERSION="2.4.4" \
