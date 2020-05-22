@@ -1,14 +1,7 @@
-# gis-server-2
-mapserver + httpd
+# jiin-server-2
+mapnik + httpd (mod_tile)
 
-# 실행 script
-docker create -it -p 0.0.0.0:13000:80 -v /data/jiserver:/data/jiserver --name gis-server-2 jiinwoojin/gis-server-2
+# 실행 스크립트
+docker run -it -p 11140:80 -v /etc/localtime:/etc/localtime:ro -v /data/jiapp:/data/jiapp --name jiin-server-2 jiinwoojin/jiin-server-2
 
-# save script
-docker save jiinwoojin/gis-server-2 > gis-server-2.tar
-
-# load script
-docker load < gis-server-2.tar 
-
-# TEST
-http://localhost:13000/mapserver/cgi-bin/mapserv?map=/data/jiserver/data_dir/mapserver/world_k2/world_k2.map&SERVICE=WMS&REQUEST=GetCapabilities&VERSION=1.3.0
+docker exec --user {UID}:{GID} jiin-server-2 renderd -f -c /data/jiapp/data_dir/conf/renderd.conf &> /data/jiapp/data_dir/logs/renderd.log &

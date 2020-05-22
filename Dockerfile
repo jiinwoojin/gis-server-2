@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# mapserver.conf + httpd
+# mapnik + httpd
 
 FROM centos:7
 MAINTAINER JIIN System <jiinwoojin@gmail.com>
@@ -28,6 +28,7 @@ SHELL [ "/usr/bin/scl", "enable", "devtoolset-7" ]
 
 RUN ./build.sh
 
-EXPOSE 80
+CMD ["/usr/sbin/setenforce", "0"]
+CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]
 
-CMD apachectl -D FOREGROUND
+EXPOSE 80
