@@ -169,6 +169,8 @@ make -j8 install
 make -j8 install-mod_tile
 ldconfig
 
+yum -y install osm2pgsql
+
 yum install -y nodejs
 npm install -g carto
 
@@ -186,6 +188,7 @@ mkdir -p /var/run/renderd
 chown apache:apache /var/run/renderd
 chown -R apache:apache /var/www
 chmod -R 777 /var/run/renderd
+chmod -R 777 /usr/local/lib/mapnik
 
 cp ./20-mod_tile.conf /etc/httpd/conf.modules.d/
 cp ./mod_tile.conf /etc/httpd/conf.d/
