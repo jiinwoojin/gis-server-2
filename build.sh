@@ -169,8 +169,6 @@ make -j8 install
 make -j8 install-mod_tile
 ldconfig
 
-yum -y install osm2pgsql
-
 yum install -y nodejs
 npm install -g carto
 
@@ -179,7 +177,6 @@ proj
 geos-config --version
 gdal-config --version
 mapnik-config --version
-osm2pgsql --version
 carto -v
 
 # shellcheck disable=SC2086
